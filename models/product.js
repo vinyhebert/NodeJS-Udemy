@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
+//Caminho do arquivo, /data/products.js
 const p = path.join(
   path.dirname(process.mainModule.filename),
   'data',
