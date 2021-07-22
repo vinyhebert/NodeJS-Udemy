@@ -21,7 +21,6 @@ module.exports = class Cart {
         //Analyze the cart => Find existing products
         const existingProductIndex = cart.products.findIndex(prod => prod.id === id)
         const existingProduct = cart.products[existingProductIndex]
-        console.log(existingProduct)
         let updateProduct
 
         //Add new product/ increase quantity
@@ -39,7 +38,7 @@ module.exports = class Cart {
             updateProduct = { id: id, qty:1}
             cart.products = [...cart.products, updateProduct]
         }
-        cart.totalPrice = cart.totalPrice + +productPrice
+        cart.totalPrice = cart.totalPrice + +productPrice //+ concatena 
         fs.writeFile(p, JSON.stringify(cart), err => {
             console.log(err)
         })
@@ -47,25 +46,5 @@ module.exports = class Cart {
     }
 }
 
-class Reptile {
-	constructor (firstAppearance) {
-  	    this.firstAppearance = firstAppearance
-  }
-  
-  static getClassName () {
-      return this.name
-  }
-}
 
-Reptile.getClassName()
-
-
-
-class Reptile1 {}
-    
-Reptile1.getClassName = function () {
-    return this.name
-}
-
-Reptile.getClassName()
 
